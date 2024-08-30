@@ -4,3 +4,4 @@
 **/*.pptx
 **/*.rds
 **/*.DS_STORE
+!*/data_brms_log.RDS
