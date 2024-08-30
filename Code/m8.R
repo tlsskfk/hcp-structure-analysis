@@ -1,8 +1,9 @@
 library(brms)
 library(pracma)
 
-## set wd
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+## set wd to here
+script_path <- normalizePath(dirname(commandArgs(trailingOnly = FALSE)[grep("--file=", commandArgs())]))
+setwd(script_path)
 
 ## Bayesian Model
 data = readRDS('./data_brms_log.RDS')
