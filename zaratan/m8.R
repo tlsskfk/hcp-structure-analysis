@@ -1,12 +1,11 @@
+#.libPaths("/scratch/zt1/project/jpurcel8-prj/shared")
+
 library(brms)
 library(pracma)
 
 ## set wd to here
-args <- commandArgs(trailingOnly = FALSE)
-script_path <- dirname(normalizePath(sub("--file=", "", args[grep("--file=", args)])))
-
-#script_path <- normalizePath(dirname(commandArgs(trailingOnly = FALSE)[grep("--file=", commandArgs())]))
-#setwd(script_path)
+script_path <- normalizePath(dirname(commandArgs(trailingOnly = FALSE)[grep("--file=", commandArgs())]))
+setwd(script_path)
 
 ## Bayesian Model
 data = readRDS('./data_brms_log.RDS')
