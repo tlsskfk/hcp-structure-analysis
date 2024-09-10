@@ -22,16 +22,17 @@ export SLURM_JOB_ID
 date 
 echo "Running $R_SCRIPT..."
 
-#cd $WDIR
-
-#echo "Make a temporary directory for the job"
-#mkdir -p /tmp/$SLURM_JOB_ID
-#cp -R $WDIR/* /tmp/$SLURM_JOB_ID/
-#cd /tmp/$SLURM_JOB_ID
+echo "Make a temporary directory for the job"
+mkdir -p /tmp/$SLURM_JOB_ID
+cp -R $WDIR/* /tmp/$SLURM_JOB_ID/
+cd /tmp/$SLURM_JOB_ID
 
 #Rscript --save ./SLURM_R_SCRIPT$script.R
 pwd
 Rscript --save ../Code/$1.R
+
+echo "finished running Code $1.R"
+date
 
 #cp /tmp/$SLURM_JOB_ID/*.rds $WDIR/$R_DIR
 

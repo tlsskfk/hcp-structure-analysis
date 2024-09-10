@@ -13,6 +13,7 @@ Still in progress (particularly with organization and documentation)
 This repository contains R code designed to run bayesian inference models using brms and (for the time being) log transformed volumes.  Weights are given to categories to be used in each model (currently using 1 for each postiive weight).  Refer to [Description of Tasks](#Description-of-tasks) to understand the correlational points in the models.
 
 ## TODO
+Adjust direcories to use tmp directory and reorgnaize zaratan components
 Need to further document portions of each part of the repository and the script elements.
 
 ## Description of Tasks
