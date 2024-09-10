@@ -7,4 +7,3 @@
 **/*.RData
 !*/data_brms_log.RDS
 zaratan/result_RAVLTXFLANKER_R10_lvl1_full.rds
-

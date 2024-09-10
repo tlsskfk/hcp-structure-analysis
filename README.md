@@ -9,6 +9,7 @@ Still in progress (particularly with organization and documentation)
 
 # Code
 [Code](./Code)
+>>>>>>> main
 This repository contains R code designed to run bayesian inference models using brms and (for the time being) log transformed volumes.  Weights are given to categories to be used in each model (currently using 1 for each postiive weight).  Refer to [Description of Tasks](#Description-of-tasks) to understand the correlational points in the models.
 
 ## TODO
