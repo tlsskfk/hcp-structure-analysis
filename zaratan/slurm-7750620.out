@@ -1,0 +1,75 @@
+Loading openmpi/gcc/11.3.0/zen2/4.1.5
+  Loading requirement: gcc/11.3.0
+Mon Sep  9 09:38:42 EDT 2024
+Running ...
+/scratch/zt1/project/jpurcel8-prj/shared/hcp-structure-analysis/zaratan
+Loading required package: Rcpp
+Loading 'brms' package (version 2.21.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').
+
+Attaching package: ‘brms’
+
+The following object is masked from ‘package:stats’:
+
+    ar
+
+
+Attaching package: ‘pracma’
+
+The following object is masked from ‘package:brms’:
+
+    bernoulli
+
+[1] "tomodpriors = brm(graymatter~ scale(  Total_cog  ) * scale(Age_yrs) + Gender + scale(BMI) + scale(walk_pace) + scale(Education_yrs) + scale(EstimatedTotalIntraCranialVol) +\n             (1 + scale(  Total_cog  ) * scale(Age_yrs) + Gender + scale(BMI)   + scale(walk_pace) + scale(Education_yrs) + scale(EstimatedTotalIntraCranialVol) | regionlvl2b/regionlvl1b) +  (1 | ID), data = data, backend = backend,chains = chains, iter = iter_prior, warmup = warmup_prior, seed = seed, cores = cores, control=list(adapt_delta=0.99, max_treedepth = 15))"
+Start sampling
+Running MCMC with 4 chains, at most 16 in parallel...
+
+Chain 1 WARNING: No variance estimation is 
+Chain 1          performed for num_warmup < 20 
+Chain 2 WARNING: No variance estimation is 
+Chain 2          performed for num_warmup < 20 
+Chain 3 WARNING: No variance estimation is 
+Chain 3          performed for num_warmup < 20 
+Chain 4 WARNING: No variance estimation is 
+Chain 4          performed for num_warmup < 20 
+Chain 1 Iteration:  1 / 100 [  1%]  (Warmup) 
+Chain 2 Iteration:  1 / 100 [  1%]  (Warmup) 
+Chain 3 Iteration:  1 / 100 [  1%]  (Warmup) 
+Chain 4 Iteration:  1 / 100 [  1%]  (Warmup) 
+Chain 1 Iteration: 11 / 100 [ 11%]  (Sampling) 
+Chain 4 Iteration: 11 / 100 [ 11%]  (Sampling) 
+Chain 2 Iteration: 11 / 100 [ 11%]  (Sampling) 
+Chain 3 Iteration: 11 / 100 [ 11%]  (Sampling) 
+Chain 2 Iteration: 100 / 100 [100%]  (Sampling) 
+Chain 2 finished in 25.5 seconds.
+Chain 3 Iteration: 100 / 100 [100%]  (Sampling) 
+Chain 3 finished in 31.3 seconds.
+Chain 1 Iteration: 100 / 100 [100%]  (Sampling) 
+Chain 1 finished in 202.3 seconds.
+Chain 4 Iteration: 100 / 100 [100%]  (Sampling) 
+Chain 4 finished in 11364.4 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 2905.9 seconds.
+Total execution time: 11366.1 seconds.
+
+Warning: 298 of 360 (83.0%) transitions ended with a divergence.
+See https://mc-stan.org/misc/warnings for details.
+
+Warning: 3 of 4 chains had an E-BFMI less than 0.3.
+See https://mc-stan.org/misc/warnings for details.
+
+Warning message:
+Rows containing NAs were excluded from the model. 
+Start sampling
+Running MCMC with 4 chains, at most 16 in parallel, with 1 thread(s) per chain...
+
+Chain 1 Iteration:    1 / 4000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 4000 [  0%]  (Warmup) 
+Chain 3 Iteration:    1 / 4000 [  0%]  (Warmup) 
+Chain 4 Iteration:    1 / 4000 [  0%]  (Warmup) 
+Chain 2 Iteration:  100 / 4000 [  2%]  (Warmup) 
+Chain 4 Iteration:  100 / 4000 [  2%]  (Warmup) 
+Chain 1 Iteration:  100 / 4000 [  2%]  (Warmup) 
+Chain 3 Iteration:  100 / 4000 [  2%]  (Warmup) 
