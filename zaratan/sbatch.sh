@@ -31,7 +31,7 @@ echo "Running $R_SCRIPT..."
 
 #Rscript --save ./SLURM_R_SCRIPT$script.R
 pwd
-Rscript --save ../Code/m8.R
+Rscript --save ../Code/$1.R
 
 #cp /tmp/$SLURM_JOB_ID/*.rds $WDIR/$R_DIR
 
