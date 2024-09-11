@@ -1,0 +1,114 @@
+Loading openmpi/gcc/11.3.0/zen2/4.1.5
+  Loading requirement: gcc/11.3.0
+Wed Sep  4 09:43:15 EDT 2024
+Running ...
+/scratch/zt1/project/jpurcel8-prj/shared/hcp-structure-analysis/zaratan
+Loading required package: Rcpp
+Loading 'brms' package (version 2.21.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').
+
+Attaching package: ‘brms’
+
+The following object is masked from ‘package:stats’:
+
+    ar
+
+
+Attaching package: ‘pracma’
+
+The following object is masked from ‘package:brms’:
+
+    bernoulli
+
+[1] "tomodpriors = brm(graymatter~ scale(Flanker) + scale(RAVLT_tot) + scale(Age_yrs) + Gender + scale(BMI) + scale(walk_pace) + scale(Education_yrs) + scale(EstimatedTotalIntraCranialVol) +\n             (1 + scale(Flanker) + scale(RAVLT_tot) + scale(Age_yrs) + Gender + scale(BMI)   + scale(walk_pace) + scale(Education_yrs) + scale(EstimatedTotalIntraCranialVol) | regionlvl1b) +            (1 | ID), data = data, backend = backend,chains = chains, iter = iter_prior, warmup = warmup_prior, seed = seed, cores = cores, control=list(adapt_delta=0.99, max_treedepth = 15))"
+Start sampling
+Running MCMC with 4 chains, at most 16 in parallel...
+
+Chain 2 WARNING: No variance estimation is 
+Chain 2          performed for num_warmup < 20 
+Chain 1 WARNING: No variance estimation is 
+Chain 1          performed for num_warmup < 20 
+Chain 3 WARNING: No variance estimation is 
+Chain 3          performed for num_warmup < 20 
+Chain 4 WARNING: No variance estimation is 
+Chain 4          performed for num_warmup < 20 
+Chain 1 Iteration:  1 / 100 [  1%]  (Warmup) 
+Chain 2 Iteration:  1 / 100 [  1%]  (Warmup) 
+Chain 3 Iteration:  1 / 100 [  1%]  (Warmup) 
+Chain 4 Iteration:  1 / 100 [  1%]  (Warmup) 
+Chain 4 Iteration: 11 / 100 [ 11%]  (Sampling) 
+Chain 1 Iteration: 11 / 100 [ 11%]  (Sampling) 
+Chain 2 Iteration: 11 / 100 [ 11%]  (Sampling) 
+Chain 3 Iteration: 11 / 100 [ 11%]  (Sampling) 
+Chain 3 Iteration: 100 / 100 [100%]  (Sampling) 
+Chain 3 finished in 7.9 seconds.
+Chain 2 Iteration: 100 / 100 [100%]  (Sampling) 
+Chain 2 finished in 20.3 seconds.
+Chain 1 Iteration: 100 / 100 [100%]  (Sampling) 
+Chain 1 finished in 22.9 seconds.
+Chain 4 Iteration: 100 / 100 [100%]  (Sampling) 
+Chain 4 finished in 8715.9 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 2191.8 seconds.
+Total execution time: 8716.6 seconds.
+
+Warning: 185 of 360 (51.0%) transitions ended with a divergence.
+See https://mc-stan.org/misc/warnings for details.
+
+Warning: 3 of 4 chains had an E-BFMI less than 0.3.
+See https://mc-stan.org/misc/warnings for details.
+
+Warning message:
+Rows containing NAs were excluded from the model. 
+Start sampling
+Running MCMC with 4 chains, at most 10 in parallel, with 2 thread(s) per chain...
+
+Chain 1 Iteration:    1 / 4000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 4000 [  0%]  (Warmup) 
+Chain 3 Iteration:    1 / 4000 [  0%]  (Warmup) 
+Chain 4 Iteration:    1 / 4000 [  0%]  (Warmup) 
+Chain 4 Iteration:  100 / 4000 [  2%]  (Warmup) 
+Chain 1 Iteration:  100 / 4000 [  2%]  (Warmup) 
+Chain 3 Iteration:  100 / 4000 [  2%]  (Warmup) 
+Chain 2 Iteration:  100 / 4000 [  2%]  (Warmup) 
+Chain 1 Iteration:  200 / 4000 [  5%]  (Warmup) 
+Chain 3 Iteration:  200 / 4000 [  5%]  (Warmup) 
+Chain 4 Iteration:  200 / 4000 [  5%]  (Warmup) 
+Chain 4 Iteration:  300 / 4000 [  7%]  (Warmup) 
+Chain 3 Iteration:  300 / 4000 [  7%]  (Warmup) 
+Chain 1 Iteration:  300 / 4000 [  7%]  (Warmup) 
+Chain 2 Iteration:  200 / 4000 [  5%]  (Warmup) 
+Chain 4 Iteration:  400 / 4000 [ 10%]  (Warmup) 
+Chain 3 Iteration:  400 / 4000 [ 10%]  (Warmup) 
+teration: 3100 / 4000 [ 77%]  (Sampling)Warmup) 
+Chain 4 Iteration:  500 / 4000 [ 12%]  (Warmup) 
+Chain 3 Iteration:  500 / 4000 [ 12%]  (Warmup) 
+Chain 2 Iteration:  300 / 4000 [  7%]  (Warmup) 
+Chain 4 Iteration:  600 / 4000 [ 15%]  (Warmup) 
+Chain 3 Iteration:  600 / 4000 [ 15%]  (Warmup) 
+Chain 4 Iteration:  700 / 4000 [ 17%]  (Warmup) 
+Chain 3 Iteration:  700 / 4000 [ 17%]  (Warmup) 
+Chain 1 Iteration:  500 / 4000 [ 12%]  (Warmup) 
+Chain 2 Iteration:  400 / 4000 [ 10%]  (Warmup) 
+Chain 4 Iteration:  800 / 4000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  800 / 4000 [ 20%]  (Warmup) 
+Chain 4 Iteration:  900 / 4000 [ 22%]  (Warmup) 
+Chain 3 Iteration:  900 / 4000 [ 22%]  (Warmup) 
+Chain 1 Iteration:  600 / 4000 [ 15%]  (Warmup) 
+Chain 4 Iteration: 1000 / 4000 [ 25%]  (Warmup) 
+Chain 4 Iteration: 1001 / 4000 [ 25%]  (Sampling) 
+Chain 2 Iteration:  500 / 4000 [ 12%]  (Warmup) 
+Chain 1 Iteration:  700 / 4000 [ 17%]  (Warmup) 
+Chain 3 Iteration: 1000 / 4000 [ 25%]  (Warmup) 
+Chain 3 Iteration: 1001 / 4000 [ 25%]  (Sampling) 
+Chain 4 Iteration: 1100 / 4000 [ 27%]  (Sampling) 
+Chain 2 Iteration:  600 / 4000 [ 15%]  (Warmup) 
+Chain 1 Iteration:  800 / 4000 [ 20%]  (Warmup) 
+Chain 3 Iteration: 1100 / 4000 [ 27%]  (Sampling) 
+Chain 4 Iteration: 1200 / 4000 [ 30%]  (Sampling) 
+Chain 2 Iteration:  700 / 4000 [ 17%]  (Warmup) 
+Chain 1 Iteration:  900 / 4000 [ 22%]  (Warmup) 
+
+teration: 3500 / 4000 [ 87%]  (Sampling)Rows containing NAs were excluded from the model. 
