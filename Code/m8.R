@@ -1,5 +1,6 @@
 library(brms)
 library(pracma)
+library(cmdstanr)
 
 ## set wd to here
 script_path <- normalizePath(dirname(commandArgs(trailingOnly = FALSE)[grep("--file=", commandArgs())]))
