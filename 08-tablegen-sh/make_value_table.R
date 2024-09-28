@@ -4,9 +4,12 @@ library(tidyverse)
 library(ggplot2)
 library(viridis)
 
+# Set working directory to script's location
+# setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+# Use setwd above for rstudio,  use the below for Rscript --save using the command line in bash
+args <- commandArgs(trailingOnly = FALSE)
+script_path <- dirname(normalizePath(sub("--file=", "", args[grep("--file=", args)])))
 
-
-setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 #Function to map a numeric value to a color using the viridis 'H' option
 map_value_to_color <- function(value, min_value, max_value) {
@@ -49,14 +52,14 @@ getpvlaue_1region = function(hold){
 }
 
 #### Read in data
-m1 = readRDS("./result_2min_R10_lvl1_full.rds")
+m1 = readRDS("./result_RAVLTXFLANKER_R10_lvl1_full.rds")
+str(m1)
 
 result1 <-  m1 %>%
   spread_draws(`b_scaleX2_min`, `r_regionlvl1b`[ROI, term]) %>%
   mutate(condition_mean = `b_scaleX2_min` + `r_regionlvl1b`)
 
 # Calculate hold table and p value table
-
 holdXpval = getpvlaue_1region(result1[result1$term=="scaleX2_min",] )
 hold = holdXpval[1]
 my_pvalues = holdXpval[[2]]
@@ -98,7 +101,7 @@ p_table <- dt %>%
 
 
 
-savename = "../figure/RAVLT/5lvl2/scaleX2_min_scaleRAVLT_tot_level2.png"
-title = "X2_min_RAVLT_5level2"
+savename = "../test.png"
+title = "test"
 plot_posterior_1region(hold1,savename, title)
 

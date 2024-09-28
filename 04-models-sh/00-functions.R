@@ -1,14 +1,13 @@
-#.libPaths("/scratch/zt1/project/jpurcel8-prj/shared")
-
 library(brms)
 library(pracma)
+library(cmdstanr)
 
 ## set wd to here
-script_path <- normalizePath(dirname(commandArgs(trailingOnly = FALSE)[grep("--file=", commandArgs())]))
-setwd(script_path)
+args <- commandArgs(trailingOnly = FALSE)
+script_path <- dirname(normalizePath(sub("--file=", "", args[grep("--file=", args)])))
 
 ## Bayesian Model
-data = readRDS('./data_brms_log.RDS')
+data = readRDS('../03-transformed-csv/data_brms_log_normalized.RDS')
 
 run_model_prior <- function(md, data, seed = 1, iter_prior = 100, warmup_prior = 10, chains = 4, cores = 16, backend = "cmdstanr"){
   command_prior = sprintf('tomodpriors = brm(%s, data = data, backend = backend,chains = chains, iter = iter_prior, warmup = warmup_prior, seed = seed, cores = cores, control=list(adapt_delta=0.99, max_treedepth = 15))', md)   
@@ -40,11 +39,3 @@ run_model = function(temp,iter=4000,warmup= 1000, ...){
   result$elapsetime = toc()
   return(result)
 }
-
-
-
-md8 = "graymatter~ scale(Flanker) + scale(RAVLT_tot) + scale(Age_yrs) + Gender + scale(BMI) + scale(walk_pace) + scale(Education_yrs) + scale(EstimatedTotalIntraCranialVol) +
-             (1 + scale(Flanker) + scale(RAVLT_tot) + scale(Age_yrs) + Gender + scale(BMI)   + scale(walk_pace) + scale(Education_yrs) + scale(EstimatedTotalIntraCranialVol) | regionlvl1b) +            (1 | ID)" 
-temp8 = run_model_prior(md8, data = data) 
-result = run_model(temp8, cores = 10, threads = threading(2), file = './result_RAVLTXFLANKER_R10_lvl1_full.rds')
-

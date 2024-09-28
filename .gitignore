@@ -5,5 +5,6 @@
 **/*.rds
 **/*.DS_STORE
 **/*.RData
-!*/data_brms_log.RDS
-zaratan/result_RAVLTXFLANKER_R10_lvl1_full.rds
+ls
+03-transformed-csv/*
+06-bayes-results/*

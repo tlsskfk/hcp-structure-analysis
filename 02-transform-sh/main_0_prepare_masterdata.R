@@ -6,6 +6,11 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 
 ## functions 
+scaleall <- function(x0){
+  x = as.matrix(x0)
+  x = (x - mean(x))/sd(x)
+  return(x)
+}
 
 W.str_selectbetweenpattern <- function(str, s1, s2, n1, n2){
   require(stringr)
@@ -157,11 +162,20 @@ data_thick_log = data_thick
 data_thick_log[,2:69] = log(data_thick[,2:69])
 
 
-
-
+data_thick_log[,2:69] = scaleall(data_thick_log[,2:69])
+data_vol_log[,2:17] = scaleall(data_vol_log[,2:17])
 # merge two dataset
-data_wide = merge(data_var,data_thick_log, by = "ID")
-data_wide = merge(data_wide,data_vol_log, by = "ID")
+data_wide = merge(data_var, data_thick_log, by = "ID")
+data_wide = merge(data_wide, data_vol_log, by = "ID")
+
+
+
+
+# data_wide = merge(data_var,data_thick, by = "ID")
+# data_wide = merge(data_wide,data_vol, by = "ID")
+
+# normalise dataset
+data_wide[,12:dim(data_wide)[2]] =  data_wide[,12:dim(data_wide)[2]]
 
 # remove NAs in 2-min
 idx = !is.na(data_wide$Flanker) & !is.na(data_wide$X2_min) & !is.na(data_wide$walk_pace )
@@ -231,6 +245,6 @@ data = data_long
 }
 
 
-saveRDS(data, file = './data_brms_log.RDS')
+saveRDS(data, file = '../data/data_brms_log_normalized.RDS')
 
-
+hist(data$graymatter)

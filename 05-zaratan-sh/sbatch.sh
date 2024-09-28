@@ -6,18 +6,12 @@
 #SBATCH --oversubscribe
 
 module purge
-#module switch umd-software-library/new
 module load openmpi
-#module load r/4.3.2/gcc/11.3.0/linux-rhel8-zen2
 module load r
 
 WDIR="/scratch/zt1/project/jpurcel8-prj/shared"
 R_LIBS=$WDIR/R_libs
 CMDSTAN=$WDIR/.cmdstan/cmdstan-2.35.0
-
-export R_LIBS
-export CMDSTAN
-export SLURM_JOB_ID
 
 date 
 echo "Running $R_SCRIPT..."
