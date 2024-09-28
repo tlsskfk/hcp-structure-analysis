@@ -8,8 +8,8 @@ SBATCH_SH=$W_DIR/05-zaratan-sh/sbatch.sh
 export USER
 
 # 1. List all files in the MODEL_DIR
-files=($MODEL_DIR/*)
-echo "Available model files:"
+files=($(find "$MODEL_DIR" -maxdepth 1 -type f ! -name "main.R"))
+echo "Available files (excluding 'main.R' and folders):"
 i=1
 for file in "${files[@]}"; do
     echo "$i) $(basename "$file")"
