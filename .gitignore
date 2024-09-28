@@ -5,6 +5,5 @@
 **/*.rds
 **/*.DS_STORE
 **/*.RData
-ls
 03-transformed-csv/*
 06-bayes-results/*

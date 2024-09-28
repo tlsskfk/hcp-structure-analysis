@@ -7,7 +7,7 @@ args <- commandArgs(trailingOnly = FALSE)
 script_path <- dirname(normalizePath(sub("--file=", "", args[grep("--file=", args)])))
 
 ## Bayesian Model
-data = readRDS('../03-transformed-csv/data_brms_log_normalized.RDS')
+data = readRDS('./data_brms_log_normalized.RDS')
 
 run_model_prior <- function(md, data, seed = 1, iter_prior = 100, warmup_prior = 10, chains = 4, cores = 16, backend = "cmdstanr"){
   command_prior = sprintf('tomodpriors = brm(%s, data = data, backend = backend,chains = chains, iter = iter_prior, warmup = warmup_prior, seed = seed, cores = cores, control=list(adapt_delta=0.99, max_treedepth = 15))', md)   

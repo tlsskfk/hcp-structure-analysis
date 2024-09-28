@@ -9,31 +9,52 @@ module purge
 module load openmpi
 module load r
 
-WDIR="/scratch/zt1/project/jpurcel8-prj/shared"
-R_LIBS=$WDIR/R_libs
-CMDSTAN=$WDIR/.cmdstan/cmdstan-2.35.0
+W_DIR="/scratch/zt1/project/jpurcel8-prj/shared/hcp-structure-analysis"
+R_LIBS=$W_DIR/../R_libs
+CMDSTAN=$W_DIR/../.cmdstan/cmdstan-2.35.0
+CSV_DIR=$W_DIR/03-transformed-csv
+CSV=data_brms_log_normalized.RDS
+MODEL_DIR=$W_DIR/04-models-sh
+ZARATAN_DIR=$W_DIR/05-zaratan-sh
+OUTPUT_DIR=$W_DIR/06-bayes-results
+SCP_OUTPUT_SERVER=$USER@jude.umd.edu:/data/jude/FAD/hcp-structure-analysis/06-bayes-results
 
 date 
-echo "Running $R_SCRIPT..."
+echo "Running model $R_SCRIPT..."
 
-echo "Make a temporary directory for the job"
+# 1. Make a temporary directory for the job"
 mkdir -p /tmp/$SLURM_JOB_ID
-cp -R $WDIR/* /tmp/$SLURM_JOB_ID/
+
+# 2. Copy over necessary things
+cp $CSV_DIR/$CSV /tmp/$SLURM_JOB_ID/
+
+# 3. Make R script
+cp $MODEL_DIR/main.R /tmp/$SLURM_JOB_ID/$1
+cat $MODEL_DIR/$1 >> /tmp/$SLURM_JOB_ID/$1
+
+# 4. cd
 cd /tmp/$SLURM_JOB_ID
 
-#Rscript --save ./SLURM_R_SCRIPT$script.R
-pwd
-Rscript --save ../Code/$1.R
+# 5. Run script and echo script for acknowledgement
+echo "Running the following script: "
+cat ./$1
+echo ""
+echo "Running..."
 
-echo "finished running Code $1.R"
+Rscript --save ./$1
+
+# 6. Move over result
+rm ./$CSV
+rm ./$1.R
+
+OUTPUT_FILE=$(ls ./*) 
+cp "./$OUTPUT_FILE" "$OUTPUT_DIR/"
+
+echo "Finished running model $1"
+echo "The time is now: "
 date
+echo ""
 
-#cp /tmp/$SLURM_JOB_ID/*.rds $WDIR/$R_DIR
-
-# You will need this if you want to send it to another server
-#echo "scp $WDIR/$R_DIR/*.rds $WDIR/$R_DIR/*.txt $SCP_OUTPUT_SERVER" >> $WDIR/$R_DIR/scp.sh
-
-#sbalance
-#date
-#echo "This is the last 25 lines of output from the slurm job associated with $CUR_RSCRIPT" >> $WDIR/$R_DIR/$tmpwd.out
-#echo "tail -n 25 $WDIR/output-$SLURM_JOB_ID.out >> $WDIR/$R_DIR/$tmpwd.out"
+# 7. Echo scp statement
+cp $ZARATAN_DIR/$SLURM_JOB_ID.out $OUTPUT_DIR/$OUTPUT_FILE.txt
+echo "scp $OUTPUT_DIR/$OUTPUT_FILE $ZARATAN_DIR/$OUTPUT_FILE.txt $SCP_OUTPUT_SERVER"
