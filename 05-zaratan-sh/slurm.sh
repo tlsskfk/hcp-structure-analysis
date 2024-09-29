@@ -23,11 +23,12 @@ read -p "Enter the number of the file you want to run with sbatch: " selection
 # 3. Check if the selection is a valid number and within range
 if [[ "$selection" -gt 0 && "$selection" -le "${#files[@]}" ]]; then
     selected_file="${files[$selection-1]}"
-    echo "You selected: $(basename "$selected_file")"
+    filename=$(basename "$selected_file")
+    echo "You selected: $filename"
     
-    # 4. Run the SBATCH_SH script with the selected file as the argument
-    echo "Running sbatch with $(basename "$selected_file")..."
-    sbatch "$SBATCH_SH" "$selected_file"
+    # 4. Run the SBATCH_SH script with the filename (not the full path) as the argument
+    echo "Running sbatch with $filename..."
+    sbatch "$SBATCH_SH" "$filename"
 else
     echo "Invalid selection. Exiting."
 fi
