@@ -6,6 +6,8 @@ library(cmdstanr)
 args <- commandArgs(trailingOnly = FALSE)
 script_path <- dirname(normalizePath(sub("--file=", "", args[grep("--file=", args)])))
 
+set_cmdstan_path("/scratch/zt1/project/jpurcel8-prj/shared/.cmdstan/cmdstan-2.35.0")
+
 ## Bayesian Model
 data = readRDS('./data_brms_log_normalized.RDS')
 
