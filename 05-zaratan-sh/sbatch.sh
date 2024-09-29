@@ -39,6 +39,7 @@ cd /tmp/$SLURM_JOB_ID
 echo "Running the following script: "
 echo "------------------------------------------------------"
 cat ./$1
+echo ""
 echo "------------------------------------------------------"
 echo ""
 echo "Running..."
