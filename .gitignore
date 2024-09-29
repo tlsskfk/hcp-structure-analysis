@@ -6,4 +6,5 @@
 **/*.DS_STORE
 **/*.RData
 03-transformed-csv/*
+05-zaratan-sh/*.out
 06-bayes-results/*
