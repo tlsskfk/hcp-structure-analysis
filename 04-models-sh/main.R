@@ -39,3 +39,4 @@ run_model = function(temp,iter=4000,warmup= 1000, ...){
   result$elapsetime = toc()
   return(result)
 }
+

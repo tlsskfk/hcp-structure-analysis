@@ -37,7 +37,9 @@ cd /tmp/$SLURM_JOB_ID
 
 # 5. Run script and echo script for acknowledgement
 echo "Running the following script: "
+echo "------------------------------------------------------"
 cat ./$1
+echo "------------------------------------------------------"
 echo ""
 echo "Running..."
 
@@ -45,7 +47,7 @@ Rscript --save ./$1
 
 # 6. Move over result
 rm ./$CSV
-rm ./$1.R
+rm ./$1
 
 OUTPUT_FILE=$(ls ./*) 
 cp "./$OUTPUT_FILE" "$OUTPUT_DIR/"
