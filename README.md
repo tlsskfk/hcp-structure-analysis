@@ -5,10 +5,6 @@
 ---
 
 ## **Table of Contents**
-- [**HCP Structure Analysis**](#hcp-structure-analysis)
-    - [*Contributors*: Yi Wei @ University of Maryland](#contributors-yi-wei--university-of-maryland)
-      - [*Maintained by*: Stephen Shin @ University of Maryland \& Nate Mearns-Escobar @ University of Maryland](#maintained-by-stephen-shin--university-of-maryland--nate-mearns-escobar--university-of-maryland)
-  - [**Table of Contents**](#table-of-contents)
 - [Project Directory Structure](#project-directory-structure)
   - [01-master-csv](#01-master-csv)
   - [02-transform-sh](#02-transform-sh)
@@ -19,9 +15,9 @@
   - [07-imagegen-sh](#07-imagegen-sh)
   - [08-tablegen-sh](#08-tablegen-sh)
   - [09-assets](#09-assets)
-  - [Description of Tasks](#description-of-tasks)
-      - [RAVLT](#ravlt)
-      - [FLANKER](#flanker)
+- [Description of Tasks](#description-of-tasks)
+    - [RAVLT](#ravlt)
+    - [FLANKER](#flanker)
 - [Resources](#resources)
 
 ---
@@ -100,3 +96,5 @@ The Flanker task measures the subject’s attentive ability and inhibitory contr
 [Bids Checker](https://bids-standard.github.io/bids-validator/)
 
 BIDS was originally designed to describe and apply consistent naming conventions to raw (unprocessed or minimally processed due to file format conversion) data.
+
+[def]: #table-of-contents
